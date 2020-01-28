@@ -1,0 +1,225 @@
+/*==============================================================================
+
+	Global styles
+
+  # Reset and standard styles
+  # General classes
+  # Cookie Consent
+
+==============================================================================*/
+
+/*=======================================================
+  # Reset and standard styles
+=======================================================*/
+
+html {
+	font-size: 62.5%;
+	height: 100%;
+}
+
+body {
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+	animation: fadeIn 1000ms;
+	animation-timing-function: ease;
+	overflow-x: hidden;
+
+	&.menu-open {
+		overflow: hidden;
+	}
+}
+
+@keyframes fadeIn {
+  0%   { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+::-moz-selection {
+	background: $color-main; 
+	color: $white;	
+}
+
+::selection  {
+	background: $color-main; 
+	color: $white;
+}
+
+.alert.alert-warning {
+	margin: 0px;
+	border-radius: 0px;
+}
+
+.wrap {
+	flex-grow: 1;
+}
+
+a,
+a:hover,
+a:focus {
+	text-decoration: none;
+}
+
+h1, h2, h3, h4, h5, h6,
+p, ul, li {
+	margin: 0;
+	padding: 0;
+}
+
+ul,
+li {
+	list-style: none;
+}
+
+img {
+	max-width: 100%;
+}
+
+@include createIncrementClass( 'marg-bot', 'margin-bottom' );
+@include createIncrementClass( 'marg-top', 'margin-top' );
+@include createIncrementClass( 'pad-bot', 'padding-bottom' );
+@include createIncrementClass( 'pad-top', 'padding-top' );
+
+.pad-0 {
+  padding: 0px !important;
+}
+
+.marg-0 {
+  margin: 0px !important;
+}
+
+.float-right { float: right !important; }
+.float-left { float: left !important; }
+.float-none { float: none !important; }
+.text-center { text-align: center !important; }
+.text-left { text-align: left !important; }
+.text-right { text-align: right !important; }
+.text-underline { text-decoration: underline !important; }
+.text-italic { font-style: italic !important; }
+.text-uppercase { text-transform: uppercase !important; }
+.text-capitalize { text-transform: capitalize !important; }
+
+
+/*=======================================================
+  # General classes
+=======================================================*/
+
+.text-container {
+	h1 {
+		margin-top: 0.67em;
+    	margin-bottom: 0.67em;
+	}
+
+	h2 {
+		margin-top: 0.83rem;
+   		margin-bottom: 0.83rem;
+	}
+
+	h3 {
+		margin-top: 1rem;
+   	 	margin-bottom: 1rem;
+	}
+
+	h4 {
+		margin-top: 1.33rem;
+    	margin-bottom: 1.33rem;
+	}
+
+	p {
+		margin-bottom: 1rem;
+	}
+
+	a {
+		text-decoration: underline;
+	}
+
+	ol, ul {
+		display: block;
+	    margin-top: 1rem;
+	    margin-bottom: 1rem;
+	    margin-left: 0;
+	    margin-right: 0;
+	    padding-left: 30px;
+	}
+	
+	ol,
+	ol li{
+	    list-style-type: decimal;
+	}
+
+	ul,
+	ul li{
+	    list-style-type: disc;
+	}
+
+	&.two-cols {
+		@include media-breakpoint-up(sm) {
+			column-count: 2;
+			column-gap: 30px;
+		}
+	}
+}
+
+
+/*==============================================================================
+  # Cookie Consent
+==============================================================================*/
+
+.cookie-container {
+	position: fixed;
+	bottom: 0px;
+	left: 0px;
+	width: 100%;
+	padding: 15px;
+	background-color: rgba( #ccc, 0.98 );
+	z-index: 998;
+
+	&.hide {
+		display: none !important;
+	}
+
+	@include media-breakpoint-up(sm) {
+		padding-top: 30px;
+		padding-bottom: 30px;
+	}
+
+	.cookie-content {
+		position: relative;
+		color: $black;
+		padding-bottom: 60px;
+
+		@include media-breakpoint-up(sm) {
+			padding-right: 190px;
+			padding-bottom: 0px;
+		}
+
+		a {
+			color: $black;
+			text-decoration: underline;
+
+			&:hover {
+				color: $black;
+			}
+		}
+
+		.close-btn {
+			position: absolute;
+			bottom: 0px;
+			right: 50%;
+    		padding: 15px 30px;
+    		color: $white;
+			background-color: $black;
+    		font-weight: 700;
+    		cursor: pointer;
+			transform: translate( 50%, 0% );
+			transition: all 250ms;
+
+			@include media-breakpoint-up(sm) {
+				top: 50%;
+				bottom: auto;
+				right: 0px;
+				transform: translate( 0%, -50% );
+			}
+		}
+	}
+}

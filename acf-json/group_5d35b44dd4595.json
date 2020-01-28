@@ -1,0 +1,62 @@
+{
+    "key": "group_5d35b44dd4595",
+    "title": "Cookies",
+    "fields": [
+        {
+            "key": "field_5d35b465e02cd",
+            "label": "Text",
+            "name": "cookie_text",
+            "type": "wysiwyg",
+            "instructions": "Text i pop-up-ruta där användaren får godkänna cookies.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "tabs": "visual",
+            "toolbar": "basic",
+            "media_upload": 1,
+            "delay": 0
+        },
+        {
+            "key": "field_5d35b483e02ce",
+            "label": "Knapptext",
+            "name": "cookie_btn",
+            "type": "text",
+            "instructions": "Knapptext när användaren godkänner cookies på sidan.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "options_page",
+                "operator": "==",
+                "value": "acf-options-generella-falt"
+            }
+        ]
+    ],
+    "menu_order": 100,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 1,
+    "description": "",
+    "modified": 1563800872
+}

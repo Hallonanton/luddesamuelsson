@@ -1,0 +1,194 @@
+/*==============================================================================
+  # Sage grid-settings
+==============================================================================*/
+
+	$main-sm-columns:       12;
+	$sidebar-sm-columns:    4;
+
+/*=======================================================
+  # Colors
+=======================================================*/
+
+	$white: #fff;
+  $black: #000;
+  $green: #27ae60;
+	$red:   #e74c3c;
+
+	$color-main: $black;
+
+
+/*=======================================================
+  # Typogrpahy
+=======================================================*/
+// Ändra efter egna preferenser. andra värdet är line-heighten eg.  null  : (15px, 1.4)
+
+$font-main:   -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
+$font-header: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
+
+$breakpoints: (
+  small : 480px,
+  medium: 768px,
+  large : 992px
+);
+
+/*
+ * Text sizes
+ */
+$xs-text: (
+  null  : ( 0.9rem, 1.4 )
+);
+
+$text: (
+  null  : ( 1.3rem, 1.5 )
+);
+
+$lg-text: (
+  null  : ( 1.6rem, 1.5 )
+);
+
+
+/*
+ * Heading sizes
+ */
+$sm-heading: (
+  null  : ( 2.2rem, 1 )
+);
+
+$md-heading: (
+  null  : ( 3rem, 1 )
+);
+
+$lg-heading: (
+  null  : ( 3.6rem, 1 )
+);
+
+$xl-heading: (
+  null  : ( 4.2rem, 0.9 )
+);
+
+
+/*=======================================================
+  # Mixins
+=======================================================*/
+
+@mixin font-size($fs-map, $fs-breakpoints: $breakpoints) {
+  @each $fs-breakpoint, $fs-font-size in $fs-map {
+    @if $fs-breakpoint == null {
+      @include make-font-size($fs-font-size);
+    }
+    @else {
+      // If $fs-font-size is a key that exists in
+      // $fs-breakpoints, use the value
+      @if map-has-key($fs-breakpoints, $fs-breakpoint) {
+        $fs-breakpoint: map-get($fs-breakpoints, $fs-breakpoint);
+      }
+      @media screen and (min-width: $fs-breakpoint) {
+        @include make-font-size($fs-font-size);
+      }
+    }
+  }
+}
+
+
+// Utility function for mixin font-size
+@mixin make-font-size($fs-font-size) {
+  // If $fs-font-size is a list, include
+  // both font-size and line-height
+  @if type-of($fs-font-size) == "list" {
+    font-size: nth($fs-font-size, 1);
+    @if (length($fs-font-size) > 1) {
+      line-height: nth($fs-font-size, 2);
+    }
+  }
+  @else {
+    font-size: $fs-font-size;
+  }
+}
+
+// Mixin för vertical position (fyll i exv. absolute)
+// EX @include vertical-align( relative );
+@mixin vertical-align($position) {
+  position: $position;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+
+//Create margin and padding classes
+//Steps up to 10 will jump 10px at a time
+$steps: 30;
+@mixin createIncrementClass( $class, $style ){
+  @for $i from 0 through $steps {
+    $size: $i*10;
+
+    .#{$class}-#{$size} { 
+
+      #{$style}: #{$size}px !important; 
+      @if( $i > 20 ){
+        @media(max-width: 991px ){
+          #{$style}: 200px !important; 
+        }
+      }
+      @if( $i > 13 ){
+        @media(max-width: 575px ){
+          #{$style}: 130px !important; 
+        }
+      }
+    }
+  }
+}
+
+
+//Create styles based on num of siblings
+// EX @include styleBySiblings( 'paymentmethod', 6, 'max-width', 100, '%' );
+@mixin styleBySiblings( $class, $max_num, $style, $max_value, $prefix ){
+  .#{$class}:first-child:nth-last-child(1) {
+    #{$style}: $max_value#{$prefix};
+  }
+  @for $i from 2 through $max_num {
+    .#{$class}:first-child:nth-last-child( #{$i} ),
+    .#{$class}:first-child:nth-last-child( #{$i} ) ~ .#{$class} {
+      #{$style}: ( $max_value/$i )#{$prefix};
+    }
+  }
+}
+
+
+/*==============================================================================
+  # Font-size classes
+==============================================================================*/
+
+body,
+.font-main {
+  font-family: $font-main;
+}
+
+.font-heading,
+h1, h2, h3, h4, h5, h6 {
+  font-family: $font-header;
+}
+
+p,
+.font-size-p {
+  @include font-size($text);
+}
+
+h1,
+.font-size-1 {
+  @include font-size($xl-heading);
+}
+
+h2,
+.font-size-2 {
+  @include font-size($lg-heading);
+}
+
+h3,
+.font-size-3 {
+  @include font-size($md-heading);
+}
+
+h4, h5, h6
+.font-size-4 {
+  @include font-size($sm-heading);  
+}

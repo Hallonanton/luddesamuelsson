@@ -1,0 +1,26 @@
+.banner {
+	padding-top: 15px;
+	padding-bottom: 15px;
+	background-color: #ccc;
+	z-index: 100;
+}
+
+.main-navigation {
+	position: fixed;
+	bottom: 100%;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	width: 100%;
+	height: 100%;
+	padding-top: 150px;
+	padding-bottom: 50px;
+	background-color: #ccc;
+	transform: translateY( 0% );
+	transition: all 250ms ease;
+	z-index: 99;
+
+	&.open {
+		transform: translateY( 100% );
+	}
+}

@@ -1,0 +1,52 @@
+body#tinymce {
+	margin: 12px !important;
+	background-color: #fff !important;
+	color: #000 !important;
+
+  	h1 {
+		margin-top: 0.67em;
+    	margin-bottom: 0.67em;
+	}
+
+	h2 {
+		margin-top: 0.83rem;
+   		margin-bottom: 0.83rem;
+	}
+
+	h3 {
+		margin-top: 1rem;
+   	 	margin-bottom: 1rem;
+	}
+
+	h4 {
+		margin-top: 1.33rem;
+    	margin-bottom: 1.33rem;
+	}
+
+	p {
+		margin-bottom: 1rem;
+	}
+
+	a {
+		text-decoration: underline;
+	}
+
+	ol, ul {
+		display: block;
+	    margin-top: 1rem;
+	    margin-bottom: 1rem;
+	    margin-left: 0;
+	    margin-right: 0;
+	    padding-left: 30px;
+	}
+	
+	ol,
+	ol li{
+	    list-style-type: decimal;
+	}
+
+	ul,
+	ul li{
+	    list-style-type: disc;
+	}
+}
