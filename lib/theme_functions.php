@@ -20,8 +20,17 @@
 add_action( 'init', 'custom_img_sizes' );
 function custom_img_sizes(){
   
-  add_image_size( 'logo',  250, 150);
-  add_image_size( 'logo_retina',  500, 300);
+  add_image_size( 'sm',  600, 9999);
+  add_image_size( 'sm_retina',  1200, 9999);
+
+  add_image_size( 'md',  900, 9999);
+  add_image_size( 'md_retina',  1800, 9999);
+
+  add_image_size( 'lg',  1200, 9999);
+  add_image_size( 'lg_retina',  2400, 9999);
+
+  add_image_size( 'xl',  1600, 9999);
+  add_image_size( 'xl_retina',  3000, 9999);
 
 }
 add_filter('jpeg_quality', function($arg){ return 100; });

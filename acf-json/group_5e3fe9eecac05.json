@@ -3,6 +3,25 @@
     "title": "Föreställningar",
     "fields": [
         {
+            "key": "field_5e4034399f662",
+            "label": "Titel",
+            "name": "show_name",
+            "type": "text",
+            "instructions": "Namnet på den valda föreställningskategorin kommer användas som standard. Detta fält kan användas om man vill att någon föreställning ska ha en extra titel så som \"Provföreställning\".",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
             "key": "field_5e3feb35fcf2a",
             "label": "Biljetstatus",
             "name": "tickets",
@@ -28,7 +47,7 @@
             "allow_null": 0,
             "multiple": 0,
             "ui": 0,
-            "return_format": "value",
+            "return_format": "array",
             "ajax": 0,
             "placeholder": ""
         },
@@ -189,5 +208,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1581247556
+    "modified": 1581271310
 }

@@ -176,25 +176,38 @@ img {
 	}
 }
 
+.page-container,
 .text-container {
-	h1 {
-		margin-top: 0.67em;
-    	margin-bottom: 0.67em;
+	@include font-size( $text );
+
+	.has-large-font-size,
+	h1, h2, h3, h4, h5, h6 {
+		font-weight: 700;
 	}
 
-	h2 {
+	h1 {
+		margin-top: 0.67em;
+    margin-bottom: 0.67em;
+    @include font-size( $xl-heading );
+	}
+
+	h2,
+	.has-large-font-size {
 		margin-top: 0.83rem;
-   		margin-bottom: 0.83rem;
+   	margin-bottom: 0.83rem;
+		@include font-size( $lg-heading );
 	}
 
 	h3 {
 		margin-top: 1rem;
-   	 	margin-bottom: 1rem;
+   	margin-bottom: 1rem;
+   	@include font-size( $md-heading );
 	}
 
 	h4 {
 		margin-top: 1.33rem;
-    	margin-bottom: 1.33rem;
+    margin-bottom: 1.33rem;
+    @include font-size( $sm-heading );
 	}
 
 	p {
@@ -207,11 +220,11 @@ img {
 
 	ol, ul {
 		display: block;
-	    margin-top: 1rem;
-	    margin-bottom: 1rem;
-	    margin-left: 0;
-	    margin-right: 0;
-	    padding-left: 30px;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 30px;
 	}
 	
 	ol,

@@ -102,7 +102,23 @@ function register_custom_blocks() {
   // check function exists
   if( function_exists('acf_register_block') ) {
 
-    // register a text_image
+    // register a hero
+    acf_register_block(array(
+      'name'              => 'hero',
+      'title'             => __('Hero'),
+      'description'       => __('Skapat för att används längst upp på en sida.'),
+      'render_callback'   => 'my_acf_block_render_callback',
+      'category'          => 'ludde',
+      'icon'              => 'format-image',
+      'keywords'          => array( 'image', 'bild', 'hero', 'cover' ),
+      'mode'              => 'edit',
+      'supports'          => array(
+        'align' => true,
+        'mode'  => false
+      ),
+    ));
+
+    // register a tickets
     acf_register_block(array(
       'name'              => 'tickets',
       'title'             => __('Biljettförsäljning'),
@@ -111,6 +127,21 @@ function register_custom_blocks() {
       'category'          => 'ludde',
       'icon'              => 'tickets-alt',
       'keywords'          => array( 'tickets', 'show', 'biljetter', 'föreställning' ),
+      'mode'              => 'edit',
+      'supports'          => array(
+        'align' => false,
+        'mode'  => false
+      ),
+    ));
+
+    // register a instagram
+    acf_register_block(array(
+      'name'              => 'instagram',
+      'title'             => __('Instagram'),
+      'render_callback'   => 'my_acf_block_render_callback',
+      'category'          => 'ludde',
+      'icon'              => 'format-gallery',
+      'keywords'          => array( 'instagram', 'image', 'bild' ),
       'mode'              => 'edit',
       'supports'          => array(
         'align' => false,

@@ -4,30 +4,17 @@
 
 .page-container {
 	margin-bottom: 100px;
-
-	h1, h2, h3, h4, h5, h6 {
-		font-weight: 700;
+	
+	.alignleft {
+		text-align: left;
 	}
 
-	ul,
-	ol {
-		padding-left: 20px;
+	.aligncenter {
+		text-align: center;
 	}
 
-	ul li {
-		list-style: disc;
-	}
-
-	ol li {
-		list-style: decimal;
-	}
-
-	p a {
-		color: $primary-color;
-
-		&:hover {
-			text-decoration: underline;
-		}
+	.alignright {
+		text-align: right;
 	}
 }
 
@@ -60,23 +47,224 @@
 }
 
 .wp-block-separator {
-	border-top: 2px solid $primary-color;
+	border-top: 2px solid $color-main;
 }
 
 .wp-block-pullquote {
 	blockquote {
 		padding: 30px 10px;
-		border-top: 2px solid $primary-color;
-		border-bottom: 2px solid $primary-color;
+		border-top: 2px solid $color-main;
+		border-bottom: 2px solid $color-main;
 	}
 }
 
 .wp-block-quote {
 	padding-left: 20px;
-	border-left: 2px solid $primary-color;
+	border-left: 2px solid $color-main;
 
 	p {
-		@include font-size( $lg-text );
+		font-weight: 700;
+		@include font-size( $md-heading );
+	}
+
+	&.is-style-large {
+		p {
+			@include font-size( $lg-heading );
+		}
 	}
 }
 
+.wp-block-cover {
+	height: auto;
+}
+
+
+/*==============================================================================
+  # Block - Tickets
+==============================================================================*/
+
+.block__tickets {
+
+	.block-title {
+		margin-bottom: 30px;
+		@include font-size( $lg-heading );
+	}
+
+	.show-list {
+		padding: 0;
+		margin: 0;
+	}
+
+	a {
+		color: $black;
+		text-decoration: underline;
+	}
+
+	.show-item {
+		display: flex;
+		align-items: center;
+		padding: 20px 15px;
+		list-style: none;
+		border-bottom: 1px solid $black;
+		transition: all 350ms $easeInOutQuint;
+
+		&:first-of-type {
+			border-top: 1px solid $black;
+		}
+
+		&:hover {
+			background-color: rgba(0,0,0,0.05);
+
+			.btn:not([disabled]) {
+				transform: translateX(-5px);
+			}
+		}
+
+		.date {
+			width: 100px;
+			text-align: left;
+			font-weight: 700;
+			@include font-size( $md-heading );
+		}
+
+		.content {
+			width: calc( 100% - 300px );
+
+			.show-title {
+				margin: 0px 0px 5px;
+				@include font-size( $sm-heading );
+			}
+
+			.info-title {
+				margin: 0px;
+				@include font-size( $lg-text );
+			}
+
+			.comment {
+				margin: 5px 0px 0px;
+			}
+		}
+
+		.cta {
+			width: 200px;
+			text-align: right;
+		}
+	}
+}
+
+
+/*==============================================================================
+  # Block - Hero
+==============================================================================*/
+
+.block__hero {
+	display: flex;
+	align-items: flex-end;
+	position: relative;
+	height: auto;
+	min-height: 90vh;
+	padding: 100px 0px;
+
+	.text-container {
+		position: relative;
+		margin-top: auto;
+		max-width: 540px;
+		z-index: 2;
+	}
+
+	picture {
+		display: block;
+		position: absolute;
+		top: 0;
+		left: 50%;
+		width: 100vw;
+		height: 100%;
+		transform: translateX(-50%);
+		background: rgba(0,0,0,0.05);
+		overflow: hidden;
+		z-index: 1;
+
+		img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+	}
+}
+
+
+/*==============================================================================
+  # Block - Instagram
+==============================================================================*/
+
+.block__instagram {
+	display: flex !important;
+	flex-wrap: wrap;
+	padding: 0px !important;
+	margin: 0px !important;
+
+	.instagram-item {
+		width: 50%;
+		max-width: 50%;
+		flex: 0 0 50%;
+		list-style: none;
+
+		@include media-breakpoint-up(sm) {
+			width: 33.33%;
+			max-width: 33.33%;
+			flex: 0 0 33.33%;
+		}
+
+		@include media-breakpoint-between(sm,lg) {
+			&:nth-child(10) {
+				display: none;
+			}
+		}
+
+		@include media-breakpoint-up(lg) {
+			width: 25%;
+			max-width: 25%;
+			flex: 0 0 25%;
+		}
+
+		@include media-breakpoint-only(lg) {
+			&:nth-child(9) {
+				display: none;
+			}
+		}
+
+		@include media-breakpoint-up(xl) {
+			width: 20%;
+			max-width: 20%;
+			flex: 0 0 20%;
+		}
+
+		a {
+			position: relative;
+			display: block;
+			width: 100%;
+			padding-bottom: 100%;
+			height: 0px;
+			background: rgba(0,0,0,0.05);
+			overflow: hidden;
+
+			&:hover {
+				img {
+					transform: translate(-50%,-50%) scale(1.05);
+					transition: all 1000ms $easeInOutQuint;
+				}
+			}
+		}
+
+		img {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			transform: translate(-50%,-50%);
+			transition: all 1000ms $easeInOutQuint;
+		}
+	}
+}
