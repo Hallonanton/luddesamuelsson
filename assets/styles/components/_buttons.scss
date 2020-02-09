@@ -1,62 +1,138 @@
-$menuBtnTime: 250ms;
+$duratio : 300ms;
+$easing: $easeInOutBack;
+
 .menu-btn {
-	cursor: pointer;
 	position: relative;
 	display: block;
-	height: 30px;
 	width: 35px;
-	transform: rotate(0deg) translateZ(0) scale(1.0, 1.0);
-	transition: transform $menuBtnTime;
-	z-index: 1000;
-
+	height: 30px;
+	cursor: pointer;
+	z-index: 999;
+	
+	.close-row,
+	.close-row:before,
 	.menu-row {
 		position: absolute;
 		top: 50%;
-		left: 0;
 		display: block;
 		width: 100%;
 		height: 4px;
 		border-radius: 1px;
+	}
+
+	.menu-row {
+		left: 0;
 		background-color: $black;
-		opacity: 1;
-		transform: translateY( -50% ) translateZ(0) scale(1.0, 1.0) ;
 	}
+}
 
-	.menu-row.top {
-		margin-top: -11px;
-        transition: transform $menuBtnTime linear 0ms, margin $menuBtnTime linear $menuBtnTime;	
-	}
+.menu-btn {
+	.menu-row {
+		transition: all $duratio  $easing;
+		
+		&.top {
+			right: 0px;
+			left: auto;
+			max-width: 100%;
+			transform: translateY(-11px) translateZ(0) scale(1, 1);
+		}
 
-	.menu-row.mid {
-		transition-duration: 0s;
-        transition-delay: $menuBtnTime, 0s;
-	}
+		&.mid {
+			transition: all $duratio  $easing;
+			transform: rotate(-180deg) translateZ(0) scale(1, 1);
+			
+			&::after {
+				display: block;
+				content: "";
+				position: absolute;
+				top: 0px;
+				left: 0px;
+				height: 100%;
+				width: 100%;
+				border-radius: 1px;
+				background-color: inherit;
+				transform: rotate(0deg) translateZ(0) scale(1, 1);
+				transition: all $duratio  ease;
+			}
+		}
 
-	.menu-row.bot {
-		margin-top: 11px;
-        transition: transform $menuBtnTime linear 0ms, margin $menuBtnTime linear $menuBtnTime;		
+		&.bot {
+			right: auto;
+			left: 0px;
+			max-width: 100%;
+			transform: translateY(11px) translateZ(0) scale(1, 1);
+		}
 	}
 
 	&.open {
-		transform: rotate(180deg) translateZ(0) scale(1.0, 1.0);
+		.menu-row {
+			background-color: $white;
+			transition: all 0ms linear;
+			
+			&.top {
+				max-width: 0%;
+				animation: key-top $duratio  $easing;
+			}
 
-		.menu-row.top {
-			margin-top: 0px !important;
-			opacity: 1;
-            transform: rotate( 45deg );
-            transition: margin $menuBtnTime linear 0ms, transform $menuBtnTime linear $menuBtnTime;
-		}
+			&.mid {
+				transform: rotate(-45deg) translateZ(0) scale(1, 1);
+				animation: key-mid $duratio  $easing;
+				
+				&::after {
+					transform: rotate(-90deg) translateZ(0) scale(1, 1);
+					transition: all 0ms linear;
+					animation: key-mid-after $duratio  $easing;
+				}
+			}
 
-		.menu-row.mid {
-            opacity: 0;
-            transition-delay: $menuBtnTime, 0s;
+			&.bot {
+				max-width: 0%;
+				animation: key-bot $duratio  $easing;
+			}
 		}
-		
-		.menu-row.bot {
-		    margin-top: 0px !important;
-		   	opacity: 1;
-            transform: rotate( -45deg );
-            transition: margin $menuBtnTime linear 0ms, transform $menuBtnTime linear $menuBtnTime;
-		}
+	}
+}
+
+@keyframes key-top {
+	0% {
+		right: auto;
+		left: 0px;
+		max-width: 100%;
+	}
+	100% {
+		right: auto;
+		left: 0px;
+		max-width: 0%;
+	}
+}
+
+@keyframes key-mid {
+	0% {
+		transform: rotate(0deg) translateZ(0) scale(1, 1);
+	}
+	100% {
+		transform: rotate(-45deg) translateZ(0) scale(1, 1);
+	}
+}
+
+@keyframes key-mid-after {
+	0% {
+		transform: rotate(0deg) translateZ(0) scale(1, 1);
+	}
+	100% {
+		transform: rotate(-90deg) translateZ(0) scale(1, 1);
+	}
+}
+
+@keyframes key-bot {
+	0% {
+		right: 0px;
+		left: auto;
+		max-width: 100%;
+	}
+	100% {
+		right: 0px;
+		left: auto;
+		max-width: 0%;
 	}
 }

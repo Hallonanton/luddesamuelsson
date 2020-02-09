@@ -1,5 +1,27 @@
 .footer {
-	padding-top: 50px;
-	padding-bottom: 50px;
-	background-color: #ccc;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	align-items: center;
+	padding-top: 15px;
+	padding-bottom: 15px;
+	text-align: right;
+	color: $white;
+	background-color: $black;
+
+	.menu-list {
+		margin: -8px;
+
+		.menu-item {
+			display: inline-block;
+			margin: 8px;
+		}
+
+		a {
+			display: inline-block;
+			color: $white;
+			padding: 2px 0px;
+		}
+	}
 }
+

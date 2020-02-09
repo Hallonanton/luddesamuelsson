@@ -45,33 +45,9 @@ function add_custom_acf_options_page(){
       'page_title'   => 'Generella fält',
       'parent_slug'  => 'general_fields',
     ));
-    acf_add_options_page(array(
-      'page_title'   => 'Header',
-      'parent_slug'  => 'general_fields',
-    ));
-    acf_add_options_page(array(
-      'page_title'   => 'Footer',
-      'parent_slug'  => 'general_fields',
-    ));
-    /*acf_add_options_page(array(
-      'page_title'   => 'Avancerade inställningar',
-      'parent_slug'  => 'general_fields',
-    ));*/
   }
 }
 add_action( 'init', 'add_custom_acf_options_page' );
-
-
-/*==============================================================================
-  # Google maps API
-==============================================================================*/
-
-/*function my_acf_init() {
-  $google_maps_key = get_field( 'google_maps_key', 'options' );
-  acf_update_setting('google_api_key', $google_maps_key );
-}
-add_action('acf/init', 'my_acf_init');*/
-
 
 
 /*==============================================================================
@@ -86,50 +62,61 @@ add_action( 'acf/input/admin_enqueue_scripts', 'my_acf_admin_enqueue_scripts' );
 
 
 /*==============================================================================
-  # Add Avancerade inställningar
+  # ACF render custom blocks
 ==============================================================================*/
 
-/*if( function_exists('acf_add_local_field_group') ):
-acf_add_local_field_group(array (
-	'key' => 'group_590096c1f3c52',
-	'title' => 'Avancerade inställningar',
-	'fields' => array (
-		array (
-			'key' => 'field_5900978995043',
-			'label' => 'Google maps key',
-			'name' => 'google_maps_key',
-			'type' => 'text',
-			'instructions' => 'Lägg till en nyckel till Googlemaps API. Gå till https://developers.google.com/maps/documentation/javascript/get-api-key för att skapa en nyckel.',
-			'required' => 0,
-			'conditional_logic' => 0,
-			'wrapper' => array (
-				'width' => '',
-				'class' => '',
-				'id' => '',
-			),
-			'default_value' => '',
-			'placeholder' => '',
-			'prepend' => '',
-			'append' => '',
-			'maxlength' => '',
-		),
-	),
-	'location' => array (
-		array (
-			array (
-				'param' => 'options_page',
-				'operator' => '==',
-				'value' => 'acf-options-avancerade-installningar',
-			),
-		),
-	),
-	'menu_order' => 0,
-	'position' => 'normal',
-	'style' => 'default',
-	'label_placement' => 'top',
-	'instruction_placement' => 'label',
-	'hide_on_screen' => '',
-	'active' => 1,
-	'description' => '',
-));
-endif; //<!-- function_exists('acf_add_local_field_group') -->*/
+function my_acf_block_render_callback( $block ) {
+
+  // convert name ("acf/testimonial") into path friendly slug ("testimonial")
+  $slug = str_replace('acf/', '', $block['name']);
+
+  // include a template part from within the "template-parts/block" folder
+  if( file_exists( get_theme_file_path("/templates/blocks/block-{$slug}.php") ) ) {
+    include( get_theme_file_path("/templates/blocks/block-{$slug}.php") );
+  }
+}
+
+/*==============================================================================
+  # Gutenberg custom ategories
+==============================================================================*/
+
+add_filter( 'block_categories', function( $categories, $post ) {
+    return array_merge(
+        $categories,
+        array(
+            array(
+                'slug'  => 'ludde',
+                'title' => 'Ludde',
+            ),
+        )
+    );
+}, 10, 2 );
+
+/*==============================================================================
+  # ACF custom blocks
+==============================================================================*/
+
+add_action('acf/init', 'register_custom_blocks');
+function register_custom_blocks() {
+
+  // check function exists
+  if( function_exists('acf_register_block') ) {
+
+    // register a text_image
+    acf_register_block(array(
+      'name'              => 'tickets',
+      'title'             => __('Biljettförsäljning'),
+      'description'       => __('Lista föreställningar.'),
+      'render_callback'   => 'my_acf_block_render_callback',
+      'category'          => 'ludde',
+      'icon'              => 'tickets-alt',
+      'keywords'          => array( 'tickets', 'show', 'biljetter', 'föreställning' ),
+      'mode'              => 'edit',
+      'supports'          => array(
+        'align' => false,
+        'mode'  => false
+      ),
+    ));
+
+  }
+};

@@ -1,0 +1,82 @@
+/*==============================================================================
+  # Page css
+==============================================================================*/
+
+.page-container {
+	margin-bottom: 100px;
+
+	h1, h2, h3, h4, h5, h6 {
+		font-weight: 700;
+	}
+
+	ul,
+	ol {
+		padding-left: 20px;
+	}
+
+	ul li {
+		list-style: disc;
+	}
+
+	ol li {
+		list-style: decimal;
+	}
+
+	p a {
+		color: $primary-color;
+
+		&:hover {
+			text-decoration: underline;
+		}
+	}
+}
+
+
+/*==============================================================================
+  # WP standard blocks
+==============================================================================*/
+
+.wp-block-button__link {
+	@extend .btn;
+
+	color: $white !important;
+	background-color: $black;
+
+	&::after {
+		border-color: $white !important;
+	};
+}
+
+.schema-faq {
+	margin-bottom: 10px;
+
+	.schema-faq-question {
+		@include font-size( $lg-text );
+	}
+
+	.schema-faq-section {
+		margin-bottom: 10px;
+	}
+}
+
+.wp-block-separator {
+	border-top: 2px solid $primary-color;
+}
+
+.wp-block-pullquote {
+	blockquote {
+		padding: 30px 10px;
+		border-top: 2px solid $primary-color;
+		border-bottom: 2px solid $primary-color;
+	}
+}
+
+.wp-block-quote {
+	padding-left: 20px;
+	border-left: 2px solid $primary-color;
+
+	p {
+		@include font-size( $lg-text );
+	}
+}
+

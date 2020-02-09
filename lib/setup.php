@@ -121,54 +121,53 @@ remove_role( 'author' );
 ==============================================================================*/
 
 /**
- * Register Produkter
+ * Register Föreställningar
  */
 
-/*$labels = array(
-  'name'                => 'Produkter', 
-  'menu_name'           => 'Produkter',
-  'singular_name'       => 'Produkt',
-  'all_items'           => 'Alla Produkter',
-  'edit_item'           => 'Ändra Produkter',
-  'update_item'         => 'Uppdatera Produkt',
-  'add_new_item'        => 'Skapa ny Produkt',
-  'new_item'            => 'Skapa ny produkt',
-  'view_item'           => 'Se produkt',
+$labels = array(
+  'name'                => 'Föreställningar', 
+  'menu_name'           => 'Föreställningar',
+  'singular_name'       => 'Föreställning',
+  'all_items'           => 'Alla föreställningar',
+  'edit_item'           => 'Ändra föreställning',
+  'update_item'         => 'Uppdatera föreställning',
+  'add_new_item'        => 'Skapa ny föreställning',
+  'new_item'            => 'Skapa ny föreställning',
+  'view_item'           => 'Visa föreställning',
 );
 
 $args = array(
   'labels'              => $labels,
   'public'              => true,
+  'publicly_queriable'  => false,
   'show_in_nav_menus'   => true,
-  'rewrite'             => array( 'slug' => 'produkter', 'with_front' => true ),
-  'menu_icon'           => 'dashicons-carrot',
+  'menu_icon'           => 'dashicons-tickets-alt',
   'has_archive'         => false,
   'supports'            => array('title','page-attributes')
   );
-register_post_type( 'product', $args );
+register_post_type( 'shows', $args );
 
 $labels = array(
-  'name'                => 'Produkttyp',
-  'menu_name'           => 'Produkttyp',
-  'singular_name'       => 'Produkttyp',
-  'search_items'        => 'Sök Produkttyp',
-  'all_items'           => 'Alla Produkttyper',
-  'edit_item'           => 'Ändra Produkttyp',
-  'update_item'         => 'Uppdatera Produkttyp',
-  'add_new_item'        => 'Skapa ny Produkttyp',
-  'new_item'            => 'Skapa ny Produkttyp',
-  'view_item'           => 'Visa Produkttyp',
+  'name'                => 'Föreställningar',
+  'menu_name'           => 'Föreställningar',
+  'singular_name'       => 'Föreställning',
+  'search_items'        => 'Sök föreställning',
+  'all_items'           => 'Alla föreställningar',
+  'edit_item'           => 'Ändra föreställning',
+  'update_item'         => 'Uppdatera föreställning',
+  'add_new_item'        => 'Skapa ny föreställning',
+  'new_item'            => 'Skapa ny föreställning',
+  'view_item'           => 'Visa föreställning',
 );
 $args = array(
-  'public'              => true,
-  'publicly_queryable'  => true,
+  'public'              => false,
+  'publicly_queryable'  => false,
   'show_ui'             => true,
   'show_in_menu'        => true,
-  'show_in_nav_menus'   => true,
+  'show_in_nav_menus'   => false,
   'show_admin_column'   => true,
   'hierarchical'        => true,
   'query_var'           => true,
   'labels'              => $labels,
-  'rewrite'             => array( 'slug' => 'produkt' ),
 );
-register_taxonomy( 'product_type', array( 'product' ), $args );*/
+register_taxonomy( 'show_name', array( 'shows' ), $args );

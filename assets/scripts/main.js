@@ -118,13 +118,11 @@ function handleMainMenu( open ) {
   if ( open ) {
     $('body').addClass('menu-open');
     $('#menu-btn').addClass('open');
-    $('#banner').addClass('open');
     $('#main-nav').addClass('open');
 
   } else {
     $('body').removeClass('menu-open');
     $('#menu-btn').removeClass('open');
-    $('#banner').removeClass('open');
     $('#main-nav').removeClass('open');
 
   }

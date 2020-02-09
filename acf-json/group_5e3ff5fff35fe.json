@@ -1,0 +1,46 @@
+{
+    "key": "group_5e3ff5fff35fe",
+    "title": "Block - Biljettförställning",
+    "fields": [
+        {
+            "key": "field_5e3ff8b6b4ba4",
+            "label": "Föreställning",
+            "name": "show",
+            "type": "taxonomy",
+            "instructions": "Välj föreställning att hämta information från. De sorteras utifrån datum.",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "taxonomy": "show_name",
+            "field_type": "select",
+            "allow_null": 0,
+            "add_term": 1,
+            "save_terms": 0,
+            "load_terms": 0,
+            "return_format": "object",
+            "multiple": 0
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf\/tickets"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 1,
+    "description": "",
+    "modified": 1581250970
+}

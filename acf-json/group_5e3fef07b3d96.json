@@ -1,0 +1,43 @@
+{
+    "key": "group_5e3fef07b3d96",
+    "title": "Google maps key",
+    "fields": [
+        {
+            "key": "field_5e3fef4914004",
+            "label": "Google maps key",
+            "name": "google_maps_key",
+            "type": "text",
+            "instructions": "Lägg till en nyckel till Googlemaps API. Gå till https:\/\/developers.google.com\/maps\/documentation\/javascript\/get-api-key för att skapa en nyckel.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "options_page",
+                "operator": "==",
+                "value": "acf-options-generella-falt"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 1,
+    "description": "",
+    "modified": 1581248353
+}

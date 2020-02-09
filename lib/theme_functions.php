@@ -8,7 +8,8 @@
   # AJAX Set seen cookie box
   # Change excerpt
   # Wrap string with phone- or mail-link
-  # Wrap string with phone- or mail-link
+  # Register footer menu
+  # Google maps API
 
 ==============================================================================*/
 
@@ -216,3 +217,26 @@ function convert_string_to_link( $string, $linkclass = '' ){
 
   return $string;
 }
+
+
+/*==============================================================================
+  # Register footer menu
+==============================================================================*/
+
+add_action( 'after_setup_theme', 'register_custom_nav_menus' );
+function register_custom_nav_menus() {
+  register_nav_menus( array(
+    'footer_menu' => 'Footer meny',
+  ) );
+}
+
+
+/*==============================================================================
+  # Google maps API
+==============================================================================*/
+
+function my_acf_init() {
+  $google_maps_key = get_field( 'google_maps_key', 'options' );
+  acf_update_setting('google_api_key', $google_maps_key );
+}
+add_action('acf/init', 'my_acf_init');

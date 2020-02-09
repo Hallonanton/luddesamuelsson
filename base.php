@@ -22,11 +22,11 @@ use Roots\Sage\Wrapper;
         get_template_part('templates/content','header');
     ?>
 
-    <div class="wrap" role="document">
+    <main class="wrap" role="document">
 
         <?php include Wrapper\template_path(); ?>
 
-    </div><!-- /.wrap -->
+    </main><!-- /.wrap -->
 
     <?php
         get_template_part('templates/includes/part','cookie-consent');
