@@ -1,4 +1,4 @@
-<div class="container-fluid">
+<div class="container">
 	<div class="row justify-content-center">
 		<article class="col col-md-10 page-container">
 			<?php 

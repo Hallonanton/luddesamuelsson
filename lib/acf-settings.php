@@ -96,6 +96,8 @@ add_filter( 'block_categories', function( $categories, $post ) {
   # ACF custom blocks
 ==============================================================================*/
 
+add_theme_support( 'responsive-embeds' );
+
 add_action('acf/init', 'register_custom_blocks');
 function register_custom_blocks() {
 
@@ -113,8 +115,9 @@ function register_custom_blocks() {
       'keywords'          => array( 'image', 'bild', 'hero', 'cover' ),
       'mode'              => 'edit',
       'supports'          => array(
-        'align' => true,
-        'mode'  => false
+        'align'   => true,
+        'mode'    => false,
+        'anchor'  => true
       ),
     ));
 
@@ -129,8 +132,9 @@ function register_custom_blocks() {
       'keywords'          => array( 'tickets', 'show', 'biljetter', 'föreställning' ),
       'mode'              => 'edit',
       'supports'          => array(
-        'align' => false,
-        'mode'  => false
+        'align'   => false,
+        'mode'    => false,
+        'anchor'  => true
       ),
     ));
 
@@ -144,8 +148,9 @@ function register_custom_blocks() {
       'keywords'          => array( 'instagram', 'image', 'bild' ),
       'mode'              => 'edit',
       'supports'          => array(
-        'align' => false,
-        'mode'  => false
+        'align'   => false,
+        'mode'    => false,
+        'anchor'  => true
       ),
     ));
 

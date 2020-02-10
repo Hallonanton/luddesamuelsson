@@ -10,6 +10,7 @@
   # Wrap string with phone- or mail-link
   # Register footer menu
   # Google maps API
+  # Get instagram images
 
 ==============================================================================*/
 
@@ -249,3 +250,46 @@ function my_acf_init() {
   acf_update_setting('google_api_key', $google_maps_key );
 }
 add_action('acf/init', 'my_acf_init');
+
+
+/*==============================================================================
+  # Get instagram images
+==============================================================================*/
+
+if (!function_exists('get_instagram_feed')) :
+
+  /**
+   * Get recent instagram feed
+   *
+   * Get new token
+   * https://www.instagram.com/oauth/authorize/?client_id=3bda320aa74a46b3b6d5968324cad8ec&redirect_uri=https://www.wbetravel.se/&response_type=token
+   *
+   * @version 1.0
+   */
+
+  function get_instagram_feed(  $access_token, $quantity ) {
+
+    $base_uri = 'https://api.instagram.com/v1/users/self/media/recent/?access_token=';
+    $request_uri = $base_uri.$access_token;
+
+    $ch = curl_init();
+    curl_setopt($ch, CURLOPT_URL, $request_uri);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+    curl_setopt($ch, CURLOPT_TIMEOUT, 20);
+    $result = curl_exec($ch);
+    curl_close($ch);
+
+    if ( !$result ) :
+
+      return null;
+
+    else : 
+
+      $result = json_decode($result);
+      $images = $result->data;
+      return array_splice($images, 0, $quantity);
+
+    endif;
+  }
+
+endif; //!class_exists('InstagramFeed')

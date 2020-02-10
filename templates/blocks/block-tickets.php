@@ -3,6 +3,11 @@
  * Block Name: Biljettförsäljning
  */
 
+$id = 'block-' . $block['id'];
+if( !empty($block['anchor']) ) {
+    $id = $block['anchor'];
+}
+
 $show = get_field('show');
 $title = 'Köp biljetter till "'.$show->name.'"';
 $args = array(
@@ -17,7 +22,7 @@ $args = array(
 $posts_array = get_posts( $args );
 ?>
 
-<div class="block block__tickets">
+<div id="<?= $id ?>" class="block block__tickets">
 	<h2 class="block-title"><?= $title ?></h2>
 
 	<?php if ( $posts_array ) : ?>

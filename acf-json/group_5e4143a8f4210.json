@@ -1,0 +1,43 @@
+{
+    "key": "group_5e4143a8f4210",
+    "title": "Instagram access token",
+    "fields": [
+        {
+            "key": "field_5e4143b844415",
+            "label": "Instagram access token",
+            "name": "instagram_access_token",
+            "type": "text",
+            "instructions": "Skapa en access token till instagram för att kunna använda flödet. Läs mer här: https:\/\/www.instagram.com\/developer\/authentication\/.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "options_page",
+                "operator": "==",
+                "value": "acf-options-generella-falt"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 1,
+    "description": "",
+    "modified": 1581335532
+}

@@ -3,73 +3,27 @@
  * Block Name: Instagram
  */
 
-$instagram_id = get_field('instagram_id');
-$client_id = get_field('client_id');
-$request_id = "https://api.instagram.com/v1/users/".$instagram_id."/media/recent/?client_id=".$client_id;
+$id = 'block-' . $block['id'];
+if( !empty($block['anchor']) ) {
+    $id = $block['anchor'];
+}
 
-
-$placeholder_array = [
-	[
-		'src' 	=> '/wp-content/uploads/2020/02/desktop-1600x1071.jpg',
-		'link'	=> '/',
-		'alt'		=> 'Alt-text'
-	],
-	[
-		'src' 	=> '/wp-content/uploads/2020/02/desktop-1600x1071.jpg',
-		'link'	=> '/',
-		'alt'		=> 'Alt-text'
-	],
-	[
-		'src' 	=> '/wp-content/uploads/2020/02/desktop-1600x1071.jpg',
-		'link'	=> '/',
-		'alt'		=> 'Alt-text'
-	],
-	[
-		'src' 	=> '/wp-content/uploads/2020/02/desktop-1600x1071.jpg',
-		'link'	=> '/',
-		'alt'		=> 'Alt-text'
-	],
-	[
-		'src' 	=> '/wp-content/uploads/2020/02/desktop-1600x1071.jpg',
-		'link'	=> '/',
-		'alt'		=> 'Alt-text'
-	],
-	[
-		'src' 	=> '/wp-content/uploads/2020/02/desktop-1600x1071.jpg',
-		'link'	=> '/',
-		'alt'		=> 'Alt-text'
-	],
-	[
-		'src' 	=> '/wp-content/uploads/2020/02/desktop-1600x1071.jpg',
-		'link'	=> '/',
-		'alt'		=> 'Alt-text'
-	],
-	[
-		'src' 	=> '/wp-content/uploads/2020/02/desktop-1600x1071.jpg',
-		'link'	=> '/',
-		'alt'		=> 'Alt-text'
-	],
-	[
-		'src' 	=> '/wp-content/uploads/2020/02/desktop-1600x1071.jpg',
-		'link'	=> '/',
-		'alt'		=> 'Alt-text'
-	],
-	[
-		'src' 	=> '/wp-content/uploads/2020/02/desktop-1600x1071.jpg',
-		'link'	=> '/',
-		'alt'		=> 'Alt-text'
-	]
-];
-
+$access_token = get_field('instagram_access_token', 'options');
+$instagram_feed = get_instagram_feed($access_token, 8);
 ?>
 
-<?php if ( $placeholder_array ) : ?>
-	<ul class="block block__instagram">
-		<?php foreach( $placeholder_array as $item ) : ?>
+<?php if ( $instagram_feed ) : ?>
+	<ul id="<?= $id ?>" class="block block__instagram">
+		<?php foreach( $instagram_feed as $image_obj ) : ?>
+
+			<?php 
+				$link = $image_obj->link;
+				$src = $image_obj->images->standard_resolution->url;
+			?>
 
 			<li class="instagram-item">
-				<a href="<?= $item['link'] ?>" target="_blank" rel="noopener noreferrer">					
-					<img class="lazyload" data-src="<?= $item['src'] ?>" alt="<?= $item['alt'] ?>">
+				<a href="<?= $link ?>" target="_blank" rel="noopener noreferrer">					
+					<img class="lazyload" data-src="<?= $src ?>">
 				</a>
 			</li>
 

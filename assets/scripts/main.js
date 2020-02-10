@@ -49,7 +49,7 @@
  */
 
 function scrollTo( $ele, $time ){
-  var $offset = $ele.offset().top;
+  var $offset = $ele.offset().top - 80;
   $("html, body").animate({
     scrollTop: $offset+'px' 
   }, $time );

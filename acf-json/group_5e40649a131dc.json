@@ -3,42 +3,21 @@
     "title": "Block - Instagram",
     "fields": [
         {
-            "key": "field_5e40649a17dcc",
-            "label": "Instagram-id",
-            "name": "instagram_id",
-            "type": "text",
+            "key": "field_5e414429dc401",
+            "label": "Instagram",
+            "name": "",
+            "type": "message",
             "instructions": "",
-            "required": 1,
+            "required": 0,
             "conditional_logic": 0,
             "wrapper": {
                 "width": "",
                 "class": "",
                 "id": ""
             },
-            "default_value": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": "",
-            "maxlength": ""
-        },
-        {
-            "key": "field_5e40710d80e3f",
-            "label": "Client-id",
-            "name": "client_id",
-            "type": "text",
-            "instructions": "",
-            "required": 1,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": "",
-            "maxlength": ""
+            "message": "Flödet kräver en access token. Aktivera flödet under \"Temainställningar\" > \"Instagram access token\"",
+            "new_lines": "wpautop",
+            "esc_html": 0
         }
     ],
     "location": [
@@ -58,5 +37,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1581281570
+    "modified": 1581338694
 }
