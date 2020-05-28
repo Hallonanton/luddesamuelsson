@@ -232,6 +232,14 @@ img {
 
 	p {
 		margin-bottom: 1rem;
+
+		a {
+			color: $white;
+
+			&:hover {
+				color: $white;
+			}
+		}
 	}
 
 	a {

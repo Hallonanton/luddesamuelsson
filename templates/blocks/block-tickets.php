@@ -46,7 +46,7 @@ $posts_array = get_posts( $args );
 					$comment = get_field('comment', $ID);
 					$link_id = str_replace(' ', '-', $city.'-'.$place.'-'.$format_date);
 					$btn_style = '';
-					$is_disabled = $tickets['label'] === 'Slut' || $tickets['label'] === 'Kommande'
+					$is_disabled = $tickets['label'] === 'Slut' || $tickets['label'] === 'Kommande';
 
 					switch ( $tickets['label'] ) {
 						case 'Slut':

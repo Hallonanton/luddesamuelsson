@@ -14,7 +14,7 @@
 	
 	<?php wp_head(); ?>
 
-	<?= ( $meta_image = get_field('meta_title') ) ? '<meta property="og:title" content="'.$meta_title.'" />' : ''; ?>
+	<?= ( $meta_title = get_field('meta_title') ) ? '<meta property="og:title" content="'.$meta_title.'" />' : ''; ?>
 	<?= ( $meta_description = get_field('meta_description') ) ? '<meta property="og:description" content="'.$meta_description.'" />' : ''; ?>
 	<?= ( $meta_image = get_field('meta_image') ) ? '<meta property="og:image" content="'.$meta_image.'" />' : ''; ?>
 	
