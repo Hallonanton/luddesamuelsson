@@ -9,6 +9,7 @@ if( !empty($block['anchor']) ) {
 }
 
 $show = get_field('show');
+$header_type = get_field('header_type');
 $title = 'Köp biljetter till "'.$show->name.'"';
 $args = array(
 	'posts_per_page'   	=> -1,
@@ -23,7 +24,7 @@ $posts_array = get_posts( $args );
 ?>
 
 <div id="<?= $id ?>" class="block block__tickets">
-	<h2 class="block-title"><?= $title ?></h2>
+	<<?= $header_type ?> class="block-title"><?= $title ?></<?= $header_type ?>>
 
 	<?php if ( $posts_array ) : ?>
 
@@ -44,6 +45,28 @@ $posts_array = get_posts( $args );
 					$format_date = ($date) ? date_format(date_create($date),"d/n") : null;
 					$comment = get_field('comment', $ID);
 					$link_id = str_replace(' ', '-', $city.'-'.$place.'-'.$format_date);
+					$btn_style = '';
+					$is_disabled = $tickets['label'] === 'Slut' || $tickets['label'] === 'Kommande'
+
+					switch ( $tickets['label'] ) {
+						case 'Slut':
+							$btn_style = 'red';
+							break;
+						case 'Köp':
+							$btn_style = 'green';
+							break;
+						case 'Extra':
+							$btn_style = 'green';
+							break;
+						case 'Fåtal':
+							$btn_style = 'yellow';
+							break;
+						case 'Kommande':
+							$btn_style = 'creame';
+							break;
+						default:
+							break;
+					}
 				?>
 
 				<li class="show-item <?= $tickets['value'] ?>">
@@ -62,9 +85,9 @@ $posts_array = get_posts( $args );
 						<?= ($comment) ? '<p class="comment">'.$comment.'</p>' : '' ?>
 					</div>
 					<div class="cta">
-						<a id="<?= $link_id ?>" class="show-ticket-link btn btn--icon" href="<?= $tickets_link ?>" title="<?= $tickets ?>" target="_blank" rel="noopener noreferrer">
+						<a id="<?= $link_id ?>" class="show-ticket-link btn btn--icon <?= $btn_style ?>" href="<?= $tickets_link ?>" title="<?= $tickets['label'] ?>" target="_blank" rel="noopener noreferrer" <?= ( $is_disabled ) ? 'disabled' : '' ; ?>>
 							<?= $tickets['label'] ?>
-							<?= file_get_contents( get_template_directory_uri().'/dist/images/tickets.svg' ); ?>
+							<?= file_get_contents( get_template_directory().'/dist/images/tickets.svg' ); ?>
 						</a>
 					</div>
 				</li>

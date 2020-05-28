@@ -3,6 +3,31 @@
     "title": "Block - Biljettförställning",
     "fields": [
         {
+            "key": "field_5ece3c7927a9b",
+            "label": "Rubriktyp",
+            "name": "header_type",
+            "type": "select",
+            "instructions": "Välj h1 om hero-blocket inte har en rubrik tillagd.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "h1": "h1",
+                "h2": "h2"
+            },
+            "default_value": "h2",
+            "allow_null": 0,
+            "multiple": 0,
+            "ui": 0,
+            "return_format": "value",
+            "ajax": 0,
+            "placeholder": ""
+        },
+        {
             "key": "field_5e3ff8b6b4ba4",
             "label": "Föreställning",
             "name": "show",
@@ -11,7 +36,7 @@
             "required": 1,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "",
+                "width": "50",
                 "class": "",
                 "id": ""
             },
@@ -42,5 +67,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1581250970
+    "modified": 1590574258
 }

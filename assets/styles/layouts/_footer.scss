@@ -7,7 +7,8 @@
 	padding-bottom: 15px;
 	text-align: right;
 	color: $white;
-	background-color: $black;
+	transition: all 250ms ease;
+	background-color: $blueSTART;
 
 	.menu-list {
 		margin: -8px;

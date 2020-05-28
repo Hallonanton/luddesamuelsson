@@ -4,7 +4,7 @@
     "fields": [
         {
             "key": "field_5e406284017ed",
-            "label": "Bild - Mobil",
+            "label": "Mobil - Bild",
             "name": "image_mobile",
             "type": "image",
             "instructions": "Porträttvy",
@@ -27,8 +27,60 @@
             "mime_types": ""
         },
         {
+            "key": "field_5ecd599128317",
+            "label": "Mobil - Vertikalpositionering",
+            "name": "vertical_mobile",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "25",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "top": "Överkant",
+                "center": "Centrerad",
+                "bottom": "Underkant"
+            },
+            "default_value": "top",
+            "allow_null": 0,
+            "multiple": 0,
+            "ui": 0,
+            "return_format": "value",
+            "ajax": 0,
+            "placeholder": ""
+        },
+        {
+            "key": "field_5ecd59fa28318",
+            "label": "Mobil - Horisontell",
+            "name": "horizontal_mobile",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "25",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "left": "Vänsterställd",
+                "center": "Centrerad",
+                "right": "Högerställd"
+            },
+            "default_value": "right",
+            "allow_null": 0,
+            "multiple": 0,
+            "ui": 0,
+            "return_format": "value",
+            "ajax": 0,
+            "placeholder": ""
+        },
+        {
             "key": "field_5e4062af017ee",
-            "label": "Bild - Desktop",
+            "label": "Desktop - Bild",
             "name": "image_desktop",
             "type": "image",
             "instructions": "Landskapsvy",
@@ -49,6 +101,58 @@
             "max_height": "",
             "max_size": "",
             "mime_types": ""
+        },
+        {
+            "key": "field_5ecd5a3928319",
+            "label": "Desktop - Vertikalpositionering",
+            "name": "vertical_desktop",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "25",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "top": "Överkant",
+                "center": "Centrerad",
+                "bottom": "Underkant"
+            },
+            "default_value": "top",
+            "allow_null": 0,
+            "multiple": 0,
+            "ui": 0,
+            "return_format": "value",
+            "ajax": 0,
+            "placeholder": ""
+        },
+        {
+            "key": "field_5ecd5a3d2831a",
+            "label": "Desktop - Horisontell",
+            "name": "horizontal_desktop",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "25",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "left": "Vänsterställd",
+                "center": "Centrerad",
+                "right": "Högerställd"
+            },
+            "default_value": "right",
+            "allow_null": 0,
+            "multiple": 0,
+            "ui": 0,
+            "return_format": "value",
+            "ajax": 0,
+            "placeholder": ""
         },
         {
             "key": "field_5e4062c4017ef",
@@ -89,6 +193,36 @@
             "new_lines": "br"
         },
         {
+            "key": "field_5ecd5b2a80de2",
+            "label": "Textfärg",
+            "name": "text_color",
+            "type": "color_picker",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": ""
+        },
+        {
+            "key": "field_5ece88ae13804",
+            "label": "Textfärg - Hover",
+            "name": "text_color_hover",
+            "type": "color_picker",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": ""
+        },
+        {
             "key": "field_5e4062e7017f1",
             "label": "Länk",
             "name": "link",
@@ -121,5 +255,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1581278074
+    "modified": 1590593731
 }

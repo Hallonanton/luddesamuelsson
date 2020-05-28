@@ -9,14 +9,19 @@
   # Colors
 =======================================================*/
 
-	$white:   #fff;
-  $black:   #000;
-  $green:   #27ae60;
-	$red:     #e35b55;
-  $orange:  #F4A75F;
-  $creame:  #EEF0B9;
+	$white:     #fff;
+  $black:     #000;
+  $green:     #27ae60;
+	$red:       #e35b55;
+  $orange:    #F4A75F;
+  $creame:    #EEF0B9;
+  $blue:      #154865;
+  $blueSTART: #011520;
+  $blueEND:   #07344B;
+  $yellow:    #f6df31;
 
-	$color-main: $red;
+	$color-main: $yellow;
+  $bg-main: $blue;
 
 
 /*=======================================================
@@ -42,8 +47,44 @@ $easeInOutQuint: cubic-bezier(0.86, 0, 0.07, 1);
 =======================================================*/
 // Ändra efter egna preferenser. andra värdet är line-heighten eg.  null  : (15px, 1.4)
 
-$font-main:   -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
-$font-header: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
+@font-face {
+    font-family: 'AvenirNext';
+    src: url('/wp-content/themes/luddesamuelsson/dist/fonts/AvenirNext-Italic.eot');
+    src: url('/wp-content/themes/luddesamuelsson/dist/fonts/AvenirNext-Italic.eot?#iefix') format('embedded-opentype'),
+        url('/wp-content/themes/luddesamuelsson/dist/fonts/AvenirNext-Italic.woff2') format('woff2'),
+        url('/wp-content/themes/luddesamuelsson/dist/fonts/AvenirNext-Italic.woff') format('woff'),
+        url('/wp-content/themes/luddesamuelsson/dist/fonts/AvenirNext-Italic.ttf') format('truetype'),
+        url('/wp-content/themes/luddesamuelsson/dist/fonts/AvenirNext-Italic.svg#AvenirNext-Italic') format('svg');
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'AvenirNext';
+    src: url('/wp-content/themes/luddesamuelsson/dist/fonts/AvenirNext-Regular.eot');
+    src: url('/wp-content/themes/luddesamuelsson/dist/fonts/AvenirNext-Regular.eot?#iefix') format('embedded-opentype'),
+        url('/wp-content/themes/luddesamuelsson/dist/fonts/AvenirNext-Regular.woff2') format('woff2'),
+        url('/wp-content/themes/luddesamuelsson/dist/fonts/AvenirNext-Regular.woff') format('woff'),
+        url('/wp-content/themes/luddesamuelsson/dist/fonts/AvenirNext-Regular.ttf') format('truetype'),
+        url('/wp-content/themes/luddesamuelsson/dist/fonts/AvenirNext-Regular.svg#AvenirNext-Regular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'AvenirNext';
+    src: url('/wp-content/themes/luddesamuelsson/dist/fonts/AvenirNext-Bold.eot');
+    src: url('/wp-content/themes/luddesamuelsson/dist/fonts/AvenirNext-Bold.eot?#iefix') format('embedded-opentype'),
+        url('/wp-content/themes/luddesamuelsson/dist/fonts/AvenirNext-Bold.woff2') format('woff2'),
+        url('/wp-content/themes/luddesamuelsson/dist/fonts/AvenirNext-Bold.woff') format('woff'),
+        url('/wp-content/themes/luddesamuelsson/dist/fonts/AvenirNext-Bold.ttf') format('truetype'),
+        url('/wp-content/themes/luddesamuelsson/dist/fonts/AvenirNext-Bold.svg#AvenirNext-Bold') format('svg');
+    font-weight: bold;
+    font-style: normal;
+}
+
+$font-main:   'AvenirNext',-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
+$font-header: $font-main;
 
 $breakpoints: (
   small : 480px,
@@ -178,14 +219,16 @@ $steps: 30;
   # Font-size classes
 ==============================================================================*/
 
-body,
-.font-main {
-  font-family: $font-main;
-}
+html { 
+  body,
+  .font-main {
+    font-family: $font-main;
+  }
 
-.font-heading,
-h1, h2, h3, h4, h5, h6 {
-  font-family: $font-header;
+  .font-heading,
+  h1, h2, h3, h4, h5, h6 {
+    font-family: $font-header;
+  }
 }
 
 p,
