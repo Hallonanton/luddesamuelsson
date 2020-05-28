@@ -12,6 +12,10 @@ use Roots\Sage\Wrapper;
 <?php get_template_part('templates/head'); ?>
 
 <body <?php body_class(); ?>>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KM3ZB27"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
     <!--[if IE]>
         <div class="alert alert-warning">
         Du använder en <strong>utdaterad</strong> webbläsare som inte längre stöds. För bästa upplevelse <a href="http://browsehappy.com/" target="_blank">uppdatera din webbläsare</a>.
