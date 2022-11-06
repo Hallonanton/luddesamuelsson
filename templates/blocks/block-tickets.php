@@ -10,7 +10,7 @@ if( !empty($block['anchor']) ) {
 
 $show = get_field('show');
 $header_type = get_field('header_type');
-$title = 'Köp biljetter till "'.$show->name.'"';
+$title = get_field('title');
 $args = array(
 	'posts_per_page'   	=> -1,
 	'order'			        => 'ASC',
@@ -24,7 +24,9 @@ $posts_array = get_posts( $args );
 ?>
 
 <div id="<?= $id ?>" class="block block__tickets">
-	<<?= $header_type ?> class="block-title"><?= $title ?></<?= $header_type ?>>
+	<?php if ($title) : ?>
+		<<?= $header_type ?> class="block-title"><?= $title ?></<?= $header_type ?>>
+	<?php endif; ?>
 
 	<?php if ( $posts_array ) : ?>
 

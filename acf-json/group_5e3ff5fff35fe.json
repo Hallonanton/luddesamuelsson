@@ -1,71 +1,90 @@
 {
-    "key": "group_5e3ff5fff35fe",
-    "title": "Block - Biljettförställning",
-    "fields": [
-        {
-            "key": "field_5ece3c7927a9b",
-            "label": "Rubriktyp",
-            "name": "header_type",
-            "type": "select",
-            "instructions": "Välj h1 om hero-blocket inte har en rubrik tillagd.",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "50",
-                "class": "",
-                "id": ""
-            },
-            "choices": {
-                "h1": "h1",
-                "h2": "h2"
-            },
-            "default_value": "h2",
-            "allow_null": 0,
-            "multiple": 0,
-            "ui": 0,
-            "return_format": "value",
-            "ajax": 0,
-            "placeholder": ""
-        },
-        {
-            "key": "field_5e3ff8b6b4ba4",
-            "label": "Föreställning",
-            "name": "show",
-            "type": "taxonomy",
-            "instructions": "Välj föreställning att hämta information från. De sorteras utifrån datum.",
-            "required": 1,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "50",
-                "class": "",
-                "id": ""
-            },
-            "taxonomy": "show_name",
-            "field_type": "select",
-            "allow_null": 0,
-            "add_term": 1,
-            "save_terms": 0,
-            "load_terms": 0,
-            "return_format": "object",
-            "multiple": 0
-        }
-    ],
-    "location": [
-        [
-            {
-                "param": "block",
-                "operator": "==",
-                "value": "acf\/tickets"
-            }
-        ]
-    ],
-    "menu_order": 0,
-    "position": "normal",
-    "style": "default",
-    "label_placement": "top",
-    "instruction_placement": "label",
-    "hide_on_screen": "",
-    "active": 1,
-    "description": "",
-    "modified": 1590574258
+  "key": "group_5e3ff5fff35fe",
+  "title": "Block - Biljettförställning",
+  "fields": [
+    {
+      "key": "field_5e3061b4017eg",
+      "label": "Rubrik",
+      "name": "title",
+      "type": "text",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "100",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "",
+      "placeholder": "",
+      "prepend": "",
+      "append": "",
+      "maxlength": ""
+    },
+    {
+      "key": "field_5ece3c7927a9b",
+      "label": "Rubriktyp",
+      "name": "header_type",
+      "type": "select",
+      "instructions": "Välj h1 om hero-blocket inte har en rubrik tillagd.",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "50",
+        "class": "",
+        "id": ""
+      },
+      "choices": {
+        "h1": "h1",
+        "h2": "h2"
+      },
+      "default_value": "h2",
+      "allow_null": 0,
+      "multiple": 0,
+      "ui": 0,
+      "return_format": "value",
+      "ajax": 0,
+      "placeholder": ""
+    },
+    {
+      "key": "field_5e3ff8b6b4ba4",
+      "label": "Föreställning",
+      "name": "show",
+      "type": "taxonomy",
+      "instructions": "Välj föreställning att hämta information från. De sorteras utifrån datum.",
+      "required": 1,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "50",
+        "class": "",
+        "id": ""
+      },
+      "taxonomy": "show_name",
+      "field_type": "select",
+      "allow_null": 0,
+      "add_term": 1,
+      "save_terms": 0,
+      "load_terms": 0,
+      "return_format": "object",
+      "multiple": 0
+    }
+  ],
+  "location": [
+    [
+      {
+        "param": "block",
+        "operator": "==",
+        "value": "acf/tickets"
+      }
+    ]
+  ],
+  "menu_order": 0,
+  "position": "normal",
+  "style": "default",
+  "label_placement": "top",
+  "instruction_placement": "label",
+  "hide_on_screen": "",
+  "active": 1,
+  "description": "",
+  "modified": 1590574258
 }
